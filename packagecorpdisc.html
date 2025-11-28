@@ -78,15 +78,16 @@
                             <option>Mandiri</option>
                             <option>BNI</option>
                             <option>BRI</option>
+                            <option>ALIBABA</option>
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label label-required">Job Posisition</label>
                         <select class="form-select" id="employeeType">
                             <option value="">-- Choose Job Position --</option>
-                            <option>Karyawan</option>
-                            <option>Direksi</option>
-                            <option>Komisaris</option>
+                            <option>Employee</option>
+                            <option>Director</option>
+                            <option>Commissioner</option>
                         </select>
                     </div>
                 </div>
@@ -122,7 +123,7 @@
                                 <i class="bi bi-people-fill"></i>
                             </span>
                             <input type="number" min="1" class="form-control" id="quota"
-                                   placeholder="Contoh: 100">
+                                   placeholder="Example: 100">
                             <span class="input-group-text">Passanger/Day</span>
                         </div>
                     </div>
@@ -135,7 +136,7 @@
                 <hr>
                 <div class="row mb-3">
                    <div class="col-md-6">
-                <label class="form-label">Travel Period (Dates)</label>
+                <label class="form-label label-required">Travel Period (Dates)</label>
                 <div class="row g-2">
                     <div class="col-6">
                         <div class="input-group">
@@ -159,7 +160,7 @@
 
 
                    <div class="col-md-6">
-    <label class="form-label">Sales Period (Date)</label>
+    <label class="form-label label-required">Sales Period (Date)</label>
     <div class="row g-2">
         <div class="col-6">
             <div class="input-group">
@@ -181,7 +182,6 @@
     </div>
 </div>
 
-                <!-- Update -->
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label label-required">Reduction period</label>
@@ -218,24 +218,34 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label">Unit of Measurement</label>
-                                <input type="text" class="form-control" id="unitMeasurement" placeholder="Please Input">
+                                 <div class="input-group">
+                                    <span class="input-group-text bg-whoosh-red">
+                                        <i class="bi bi-person-badge"></i>
+                                    </span>
+                                   <select class="form-select day-type" id="sunType">
+                                    <option>Choose</option>        
+                                    <option>Days</option>
+                                            <option>Weeks</option>
+                                            <option>Months</option>
+                                            <option>Years</option>
+                                        </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- <hr> -->
-
-                <!-- Baris 7: Rute & Nomor Kereta yang tidak berlaku -->
+  
                     <div class="mb-3">
                     <div class="mb-3"> 
     <label class="form-label">Routes not eligible for Corporate Discount</label>
     <select class="form-select" id="excludedRoutes" multiple size="4">
        example options, please adjust accordingly 
-         <option value="JKT-BDG">JKT-TGR</option>
-        <option value="BDG-JKT">BDG-JKT</option>
-        <option value="JKT-TGR">JKT-TGR</option>
-        <option value="TGR-JKT">TGR-JKT</option>
+         <option value="JKT-BDG">HLM-TGR</option>
+         <option value="JKT-BDG">HLM-TGR</option>
+        <option value="BDG-JKT">TGR-JKT</option>
+        <option value="JKT-TGR">PDG-TGR</option>
+        <option value="TGR-JKT">PDG-JKT</option>
     </select> 
      <div class="form-text small">
         Press <strong>Ctrl + click</strong> (or Cmd + click on Mac) to select more than one route.
@@ -250,13 +260,13 @@
                               placeholder="Example: G0221, G0222"></textarea>
                 </div> 
 
-                <!-- Catatan Program -->
+       
  <hr class="mb-3">
 
-                <!-- ================== LEFT COLUMN ================== -->
+              
 <div class="col-md-6">
 
-                        <!-- HEADER: Hari | Amount | Jenis -->
+                  
                         <div class="row fw-bold mb-2 text-center align-items-center">
                             <div class="col-md-3 text-start">Day</div>
                             <div class="col-md-9">
@@ -267,7 +277,6 @@
                             </div>
                         </div>
 
-                        <!-- Sunday -->
                         <div class="mb-3 row align-items-center">
                             <label class="col-md-3 col-form-label label-required">Sunday</label>
                             <div class="col-md-9">
@@ -288,7 +297,7 @@
                             </div>
                         </div>
 
-                        <!-- Monday -->
+                    
                         <div class="mb-3 row align-items-center">
                             <label class="col-md-3 col-form-label label-required">Monday</label>
                             <div class="col-md-9">
@@ -309,7 +318,7 @@
                             </div>
                         </div>
 
-                        <!-- Tuesday -->
+
                         <div class="mb-3 row align-items-center">
                             <label class="col-md-3 col-form-label label-required">Tuesday</label>
                             <div class="col-md-9">
@@ -330,7 +339,7 @@
                             </div>
                         </div>
 
-                        <!-- Wednesday -->
+                       
                         <div class="mb-3 row align-items-center">
                             <label class="col-md-3 col-form-label label-required">Wednesday</label>
                             <div class="col-md-9">
@@ -353,10 +362,10 @@
 
                     </div>
 
-<!-- ================== RIGHT COLUMN ================== -->
+
             <div class="col-md-6">
 
-                        <!-- HEADER: Hari | Amount | Type -->
+                    
                         <div class="row fw-bold mb-2 text-center align-items-center">
                             <div class="col-md-3 text-start">Day</div>
                             <div class="col-md-9">
@@ -367,7 +376,7 @@
                             </div>
                         </div>
 
-                        <!-- Thursday -->
+                  
                         <div class="mb-3 row align-items-center">
                             <label class="col-md-3 col-form-label label-required">Thursday</label>
                             <div class="col-md-9">
@@ -388,7 +397,6 @@
                             </div>
                         </div>
 
-                        <!-- Friday -->
                         <div class="mb-3 row align-items-center">
                             <label class="col-md-3 col-form-label label-required">Friday</label>
                             <div class="col-md-9">
@@ -409,7 +417,7 @@
                             </div>
                         </div>
 
-                        <!-- Saturday -->
+                  
                         <div class="mb-3 row align-items-center">
                             <label class="col-md-3 col-form-label label-required">Saturday</label>
                             <div class="col-md-9">
@@ -430,7 +438,7 @@
                             </div>
                         </div>
 
-    <!-- Holiday -->
+   
                 <div class="mb-3 row align-items-center">
                     <label class="col-md-3 col-form-label label-required">Holiday</label>
                     <div class="col-md-9">
@@ -464,7 +472,7 @@
                     </ol>
                 </div>
 
-                <!-- Footer Buttons -->
+              
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <div class="note-required text-danger small">
                         <i class="bi bi-asterisk"></i> Fields marked with * are required
@@ -483,7 +491,7 @@
     </div>
 </div>
 
-<!-- Modal Preview -->
+
 <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
