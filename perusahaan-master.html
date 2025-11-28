@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Master Data Perusahaan (Corporate)</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-light">
+
+<div class="container my-4" style="max-width: 900px;">
+    <div class="card shadow-sm border-0">
+            <div class="card-header d-flex justify-content-between align-items-center">
+            <span>MASTER DATA PERUSAHAAN</span>
+            <div class="small text-muted">
+                <!-- <a href="#" class="me-3 text-decoration-none">
+                    <i class="bi bi-table"></i> List Paket
+                </a>
+                <a href="#" class="text-decoration-none">
+                    <i class="bi bi-plus-square"></i> Paket Baru
+                </a> -->
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <h6 class="section-title mb-4">Entry Data Perusahaan</h6>
+
+            <!-- ALERT VALIDASI -->
+            <div id="alertBoxCompany" class="alert alert-danger d-none py-2 mb-3 small"></div>
+
+            <form id="companyForm">
+
+                <!-- Code + Nama Perusahaan -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label label-required">Code Perusahaan</label>
+                        <input type="text" class="form-control" id="corpCode" placeholder="Masukkan Code">
+                    </div>
+
+                    <div class="col-md-8">
+                        <label class="form-label label-required">Nama Perusahaan</label>
+                        <input type="text" class="form-control" id="corpName" placeholder="Masukkan Nama">
+                    </div>
+                </div>
+
+                <!-- NPWP + Alamat -->
+                <div class="mb-3">
+                    <label class="form-label label-required">NPWP</label>
+                    <input type="text" class="form-control" id="corpNPWP" placeholder="99.999.999.9-999.999">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label label-required">Alamat Perusahaan</label>
+                    <textarea class="form-control" id="corpAddress" rows="2" placeholder="Alamat lengkap perusahaan"></textarea>
+                </div>
+
+                <!-- Contact Person + Telepon + Email -->
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label label-required">Contact Person</label>
+                        <input type="text" class="form-control" id="corpPIC" placeholder="Nama PIC">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label label-required">No Telepon PIC</label>
+                        <input type="tel" class="form-control" id="corpPhone" placeholder="08xxxxxxxxxx">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label class="form-label label-required">Email Perusahaan</label>
+                        <input type="email" class="form-control" id="corpEmail" placeholder="email@company.com">
+                    </div>
+                </div>
+
+                <!-- FOOTER BUTTON -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <div class="note-required text-danger small">
+                        <i class="bi bi-asterisk"></i> Field bertanda * wajib diisi
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary me-2">Simpan (Preview)</button>
+                        <button type="button" class="btn btn-outline-secondary" id="resetCompany">Batal</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- PREVIEW MODAL -->
+<div class="modal fade" id="previewCompany" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Preview Data Perusahaan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <table class="table table-bordered table-sm">
+          <tbody>
+          <tr><th style="width:200px;">Code Perusahaan</th><td id="pvCompCode"></td></tr>
+          <tr><th>Nama Perusahaan</th><td id="pvCompName"></td></tr>
+          <tr><th>NPWP</th><td id="pvCompNPWP"></td></tr>
+          <tr><th>Alamat</th><td id="pvCompAddr"></td></tr>
+          <tr><th>Contact Person</th><td id="pvCompPIC"></td></tr>
+          <tr><th>No Telepon PIC</th><td id="pvCompTel"></td></tr>
+          <tr><th>Email Perusahaan</th><td id="pvCompEmail"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Tutup</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="assets/js/app.js"></script>
+</body>
+</html>

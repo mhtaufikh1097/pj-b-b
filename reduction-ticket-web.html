@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Book – Passenger & Reduction Type (Web)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-size: 14px;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+    }
+
+    .trip-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .trip-header .train-code {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .fare-row {
+      padding: 12px 24px 16px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      gap: 16px;
+    }
+
+    .fare-card {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      background: #fafafa;
+    }
+
+    .fare-card.selected {
+      border-color: #d93030;
+      background: #fff4f4;
+    }
+
+    .fare-price {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .fare-class {
+      font-weight: 500;
+    }
+
+    .passenger-section {
+      padding: 16px 24px 24px;
+    }
+
+    .passenger-section h5 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    /* header row (checkbox + names + search) */
+    .passenger-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .passenger-header-line .names label {
+      margin-right: 16px;
+    }
+
+    .passenger-header-line .search-box input {
+      height: 28px;
+      font-size: 0.85rem;
+    }
+
+    .ticket-note {
+      font-size: 0.8rem;
+      color: #666;
+      padding: 12px 24px 16px;
+      border-top: 1px solid #eee;
+    }
+
+    .ticket-note ol {
+      padding-left: 16px;
+    }
+
+    /* tombol Add Passenger */
+    .btn-add-passenger {
+      background-color: #d93030;
+      border-color: #d93030;
+      font-size: 0.9rem;
+      padding-inline: 24px;
+    }
+
+    .btn-add-passenger i {
+      margin-right: 4px;
+    }
+
+    /* kolom "Add accompanying infant" */
+    .infant-link {
+      color: #d93030;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .infant-link:hover {
+      text-decoration: underline;
+    }
+
+    /* select kecil untuk table */
+    .table-select {
+      font-size: 0.85rem;
+      height: 30px;
+      padding: 2px 24px 2px 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <!-- HEADER TRIP -->
+  <div class="trip-header d-flex justify-content-between align-items-center">
+    <div>
+      <div class="train-code">G1037</div>
+      <div class="text-muted" style="font-size:0.85rem;">24 November 2025 (Monday)</div>
+    </div>
+    <div class="text-center text-muted" style="font-size:0.8rem;">
+      <div>Halim <span class="mx-1">➝</span> Tegalluar Summarecon</div>
+      <div>Duration 47m</div>
+    </div>
+  </div>
+
+  <!-- FARE CARDS -->
+  <div class="fare-row">
+    <div class="fare-card">
+      <div class="fare-price">Rp.600.000</div>
+      <div class="fare-class">First Class</div>
+      <div class="text-success" style="font-size:0.8rem;">Ticket available</div>
+    </div>
+    <div class="fare-card">
+      <div class="fare-price">Rp.450.000</div>
+      <div class="fare-class">Business Class</div>
+      <div class="text-success" style="font-size:0.8rem;">Ticket available</div>
+    </div>
+    <div class="fare-card selected">
+      <div class="fare-price">Rp.275.000</div>
+      <div class="fare-class">Premium Economy Class</div>
+      <div class="text-success" style="font-size:0.8rem;">Ticket available</div>
+    </div>
+  </div>
+
+  <div class="px-4 pt-1 pb-2 text-danger" style="font-size:0.8rem;">
+    *The specific fare is based on the actual fare that you purchased when you confirmed the payment
+  </div>
+
+  <!-- PASSENGER SECTION -->
+  <div class="passenger-section">
+    <h5>Passenger Information</h5>
+
+    <div class="passenger-header-line">
+      <div class="names">
+        <label>
+          <input type="checkbox" checked> Muhammad taufik hidayat
+        </label>
+        <label>
+          <input type="checkbox"> Muhammad Taufik
+        </label>
+        <label>
+          <input type="checkbox"> Poik 
+        </label>
+      </div>
+      <div class="search-box">
+        <div class="input-group input-group-sm">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          <input type="text" class="form-control" placeholder="Enter passenger name">
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-responsive">
+      <table class="table align-middle mb-3">
+        <thead class="table-light">
+        <tr>
+          <th style="width: 18%;">Seat type</th>
+          <th style="width: 13%;">Ticket type</th>
+          <!-- KOTAK MERAH 1: kolom baru Reduction Type -->
+          <th style="width: 15%;">Reduction Type</th>
+          <th style="width: 20%;">Passenger Name</th>
+          <th style="width: 14%;">ID Card Type</th>
+          <th style="width: 12%;">ID Card Number</th>
+          <th style="width: 18%;"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Premium Economy Class</td>
+
+          <!-- KOTAK MERAH 2: dropdown Ticket type (4 pilihan, tampilan 1 baris + panah) -->
+          <td>
+            <select class="form-select table-select" id="ticketType">
+              <option selected>Adult ticket</option>
+              <option>Child ticket</option>
+              <option>Senior ticket</option>
+              <option>Promo ticket</option>
+            </select>
+          </td>
+
+          <!-- Reduction Type dropdown (contoh 3 bank / corporate) -->
+          <td>
+            <select class="form-select table-select" id="reductionType">
+              <option selected>None</option>
+              <option>BNI </option>
+              <option>MANDIRI</option>
+              <option>BRI </option>
+            </select>
+          </td>
+
+          <td>Muhammad taufik hidayat</td>
+          <td>Identity No.</td>
+          <td>3315****62</td>
+          <td class="text-end">
+            <a href="#" class="infant-link me-2">Add accompanying infant</a>
+            <button class="btn btn-sm btn-outline-danger">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-center mt-2">
+      <button class="btn btn-add-passenger">
+        <i class="bi bi-plus-lg"></i> Add Passenger
+      </button>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="ticket-note">
+    <strong>Tips</strong>
+    <ol class="mb-0">
+      <li>Either the adult's ID Card or the infant's ID Card Information can be used for the infant's ticket purchase.</li>
+      <li>No ticket is needed for the accompanying infant that is under 3 years old.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Bootstrap JS (optional, hanya kalau mau interaksi nanti) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Kalau nanti mau dipakai untuk logika lain, tinggal pakai event berikut:
+  document.getElementById('ticketType').addEventListener('change', function () {
+    console.log('Ticket type:', this.value);
+  });
+
+  document.getElementById('reductionType').addEventListener('change', function () {
+    console.log('Reduction type:', this.value);
+  });
+</script>
+</body>
+</html>

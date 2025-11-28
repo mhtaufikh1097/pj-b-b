@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Book - Reduction Type</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-size: 14px;
+    }
+
+    /* frame hp */
+    .phone-wrapper {
+      max-width: 420px;
+      margin: 0 auto;
+      background-color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0,0,0,.1);
+      overflow: hidden;
+    }
+
+    .app-header {
+      background: #d93030;
+      color: #fff;
+      padding: .75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .app-header h6 {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .trip-info {
+      padding: .75rem 1rem;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+    }
+
+    .trip-info .time {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .trip-info small {
+      font-size: .7rem;
+      color: #dc3545;
+      font-weight: 600;
+    }
+
+    .class-card {
+      padding: .85rem;
+      border-radius: .5rem;
+      border: 1px solid #e0e0e0;
+      background: #fafafa;
+      text-align: left;
+      flex: 1;
+      margin-right: .5rem;
+      font-size: .8rem;
+    }
+
+    .class-card.selected {
+      border-color: #d93030;
+      background: #fff4f4;
+    }
+
+    .price-row {
+      padding: .5rem 1rem .75rem;
+      display: flex;
+      gap: .5rem;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+
+    .price {
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: .85rem;
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+
+    .card-flat {
+      background: #fff;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid #eee;
+    }
+
+    .badge-ticket {
+      background: #f0f0f0;
+      border-radius: 999px;
+      padding: .15rem .6rem;
+      font-size: .7rem;
+      border: 1px solid #ddd;
+    }
+
+    .badge-ticket i {
+      font-size: .6rem;
+    }
+
+    /* label Reduction Type (kotak merah) */
+    .reduction-field-label {
+      font-size: .8rem;
+      color: #6c757d;
+    }
+
+    .reduction-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: .15rem .55rem;
+      border-radius: 999px;
+      border: 1px solid #d93030;
+      color: #d93030;
+      font-size: .75rem;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .reduction-pill i {
+      font-size: .7rem;
+      margin-left: .2rem;
+    }
+
+    /* bottom sheet style */
+    .modal.bottom-sheet .modal-dialog {
+      margin: 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translateY(100%);
+      transition: transform .3s ease-out;
+    }
+    .modal.bottom-sheet.show .modal-dialog {
+      transform: translateY(0);
+    }
+    .modal.bottom-sheet .modal-content {
+      border-radius: 16px 16px 0 0;
+    }
+    .list-option {
+      cursor: pointer;
+    }
+
+    /* ==== DI SINI GANTI WARNA BIRU-NYA ==== */
+    .list-option.active {
+      background-color: #00529b !important; /* ganti warna biru di sini */
+      color: #fff !important;
+    }
+    .list-option.active span {
+      color: #fff !important;
+    }
+    .list-option.active .icon-check {
+      color: #fff !important;
+    }
+    /* ====================================== */
+
+    .ticket-note {
+      font-size: .7rem;
+      color: #555;
+      background: #fff;
+      padding: .75rem 1rem 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="phone-wrapper">
+
+  <!-- HEADER -->
+  <div class="app-header">
+    <button class="btn btn-sm btn-link text-white p-0">
+      <i class="bi bi-arrow-left"></i>
+    </button>
+    <h6>Book</h6>
+    <span style="width:16px;"></span>
+  </div>
+
+  <!-- TRIP INFO -->
+  <div class="trip-info">
+    <div>
+      <div class="time">14:00 <small>WIB</small></div>
+      <div class="text-muted" style="font-size:.75rem;">Halim</div>
+    </div>
+    <div class="text-center">
+      <div class="text-primary fw-semibold">G1033</div>
+    </div>
+    <div class="text-end">
+      <div class="time">14:30 <small>WIB</small></div>
+      <div class="text-muted" style="font-size:.75rem;">Padalarang</div>
+    </div>
+  </div>
+
+  <!-- PRICE CARDS -->
+  <div class="price-row">
+    <div class="class-card">
+      <div class="price">Rp.600.000</div>
+      <div>First Class</div>
+      <div class="text-success" style="font-size:.7rem;">Available</div>
+    </div>
+    <div class="class-card">
+      <div class="price">Rp.450.000</div>
+      <div>Business Class</div>
+      <div class="text-success" style="font-size:.7rem;">Available</div>
+    </div>
+    <div class="class-card selected" style="margin-right:0;">
+      <div class="price">Rp.275.000</div>
+      <div>Premium Economy Class</div>
+      <div class="text-success" style="font-size:.7rem;">Available</div>
+    </div>
+  </div>
+
+  <!-- PASSENGER CARD -->
+  <div class="card card-flat">
+    <div class="card-body pb-2">
+
+      <div class="section-title">Passenger</div>
+
+      <!-- container passenger, akan dirender via JS -->
+      <div id="passengerContainer" class="mb-3"></div>
+
+      <button class="btn btn-outline-danger w-100" id="btnSelectPassenger" style="font-size:.85rem;">
+        Select Passenger
+      </button>
+    </div>
+  </div>
+
+  <!-- NOTE -->
+  <div class="ticket-note">
+    <div class="fw-semibold mb-1">Ticket Detection & Cancel Condition</div>
+    <ol class="mb-0 ps-3">
+      <li>BA baby under three</li>
+      <li>Adults 17 years of age or older</li>
+      <li>The name and identity number must match Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, consequatur!.</li>
+    </ol>
+  </div>
+
+  <div class="flex-grow-1"></div>
+
+</div> <!-- /phone-wrapper -->
+
+<!-- MODAL: PILIH PASSENGER (dummy) -->
+<div class="modal fade" id="passengerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header py-2">
+        <h6 class="modal-title">Select Passenger</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body py-2">
+        <ul class="list-group">
+          <li class="list-group-item passenger-option" data-name="Muhammad Taufik Hidayat" data-id="3219****09">
+            Muhammad Taufik Hidayat<br>
+            <small class="text-muted">Identity No. 3219****09</small>
+          </li>
+          <li class="list-group-item passenger-option" data-name="Eko Budi Ramdhani A" data-id="3276****09">
+            Eko Budi Ramdhani A<br>
+            <small class="text-muted">Identity No. 3276****09</small>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer py-2">
+        <button class="btn btn-secondary btn-sm w-100" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM SHEET: REDUCTION TYPE -->
+<div class="modal fade bottom-sheet" id="reductionTypeModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- HEADER -->
+      <div class="modal-header border-0 pb-0">
+        <h6 class="modal-title w-100 text-center">Reduction Type</h6>
+        <button type="button" class="btn-close ms-0" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body pt-2 pb-0">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center list-option active"
+              data-value="BNI">
+            <span>BNI</span>
+            <i class="bi bi-check-lg icon-check"></i>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center list-option"
+              data-value="MANDIRI">
+            <span>MANDIRI</span>
+            <i class="bi bi-check-lg icon-check d-none"></i>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center list-option"
+              data-value="BRI">
+            <span>BRI</span>
+            <i class="bi bi-check-lg icon-check d-none"></i>
+          </li>
+        </ul>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="modal-footer border-0">
+        <button type="button"
+                class="btn w-100 text-white"
+                style="background:#d93030;"
+                id="applyReductionBtn">
+          Apply
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const passengerContainer = document.getElementById('passengerContainer');
+    const selectPassengerBtn = document.getElementById('btnSelectPassenger');
+
+    const passengerModalEl = document.getElementById('passengerModal');
+    const passengerModal = new bootstrap.Modal(passengerModalEl);
+
+    const reductionModalEl = document.getElementById('reductionTypeModal');
+    const reductionModal = new bootstrap.Modal(reductionModalEl);
+
+    let currentPassenger = null;
+    let selectedReduction = 'BNI';
+
+    // render passenger card (termasuk Reduction Type) setiap kali select / deselect
+    function renderPassenger() {
+      if (!currentPassenger) {
+        passengerContainer.innerHTML =
+          '<div class="text-muted" style="font-size:.8rem;">No passenger selected</div>';
+        return;
+      }
+
+      passengerContainer.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <div>
+            <div class="fw-semibold" style="font-size:.9rem;">${currentPassenger.name}</div>
+          </div>
+          <button class="badge-ticket border-0">
+            Adult ticket <i class="bi bi-chevron-down ms-1"></i>
+          </button>
+        </div>
+
+        <div class="mb-1" style="font-size:.78rem;">
+          <span class="text-muted">Identity No.</span>
+          <span class="ms-1">${currentPassenger.id}</span>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-1">
+          <div class="reduction-field-label">Reduction Type</div>
+          <button type="button"
+                  class="reduction-pill"
+                  id="reductionTrigger">
+            <span id="selectedReductionTop">${selectedReduction}</span>
+            <i class="bi bi-chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="mt-2 d-flex justify-content-end gap-2">
+          <button class="btn btn-sm btn-outline-secondary py-0 px-2" id="btnDeselectPassenger">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      `;
+
+      // RE-BIND event setiap kali DOM diganti
+      bindReductionTrigger();
+      bindDeselectPassenger();
+    }
+
+    function bindReductionTrigger() {
+      const trigger = document.getElementById('reductionTrigger');
+      if (trigger) {
+        trigger.addEventListener('click', function () {
+          reductionModal.show();
+        });
+      }
+    }
+
+    function bindDeselectPassenger() {
+      const btn = document.getElementById('btnDeselectPassenger');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          currentPassenger = null;
+          renderPassenger();
+        });
+      }
+    }
+
+    // init pertama tanpa passenger
+    renderPassenger();
+
+    // open modal pilih passenger
+    selectPassengerBtn.addEventListener('click', function () {
+      passengerModal.show();
+    });
+
+    // pilih passenger dari modal
+    document.querySelectorAll('.passenger-option').forEach(function (item) {
+      item.addEventListener('click', function () {
+        const name = this.getAttribute('data-name');
+        const id = this.getAttribute('data-id');
+        currentPassenger = {name, id};
+        passengerModal.hide();
+        renderPassenger();
+      });
+    });
+
+    // handle pilihan Reduction Type di bottom sheet
+    const options = document.querySelectorAll('.list-option');
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        options.forEach(o => {
+          o.classList.remove('active');
+          o.querySelector('.icon-check').classList.add('d-none');
+        });
+
+        opt.classList.add('active');
+        opt.querySelector('.icon-check').classList.remove('d-none');
+
+        selectedReduction = opt.getAttribute('data-value');
+      });
+    });
+
+    // Apply reduction: update pill text & tutup bottom sheet
+    document.getElementById('applyReductionBtn').addEventListener('click', () => {
+      const label = document.getElementById('selectedReductionTop');
+      if (label) {
+        label.textContent = selectedReduction;
+      }
+      reductionModal.hide();
+    });
+  });
+</script>
+
+</body>
+</html>

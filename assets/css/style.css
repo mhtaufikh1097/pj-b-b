@@ -1,0 +1,48 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.section-title {
+    font-weight: 600;
+    margin-bottom: .75rem;
+}
+
+.label-required::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.bg-whoosh-red {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.input-group-text.bg-whoosh-red {
+    border-color: #d9534f;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.1rem rgba(220, 53, 69, 0.25);
+    border-color: #dc3545;
+}
+
+.note-required {
+    font-size: 0.8rem;
+}
+
+/* kecilkan padding alert validasi */
+#alertBox {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+/* bantuan highlight field error */
+.is-invalid {
+    border-color: #dc3545 !important;
+}
