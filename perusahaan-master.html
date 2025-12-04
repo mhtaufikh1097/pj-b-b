@@ -20,7 +20,7 @@
 <div class="container my-4" style="max-width: 900px;">
     <div class="card shadow-sm border-0">
             <div class="card-header d-flex justify-content-between align-items-center">
-            <span>MASTER DATA PERUSAHAAN</span>
+            <span>COMPANY MASTER DATA</span>
             <div class="small text-muted">
                 <!-- <a href="#" class="me-3 text-decoration-none">
                     <i class="bi bi-table"></i> List Paket
@@ -33,7 +33,7 @@
 
         <div class="card-body">
 
-            <h6 class="section-title mb-4">Entry Data Perusahaan</h6>
+            <h6 class="section-title mb-4">Company Data Entry</h6>
 
             <!-- ALERT VALIDASI -->
             <div id="alertBoxCompany" class="alert alert-danger d-none py-2 mb-3 small"></div>
@@ -43,12 +43,12 @@
                 <!-- Code + Nama Perusahaan -->
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <label class="form-label label-required">Code Perusahaan</label>
+                        <label class="form-label label-required">Company Code</label>
                         <input type="text" class="form-control" id="corpCode" placeholder="Masukkan Code">
                     </div>
 
                     <div class="col-md-8">
-                        <label class="form-label label-required">Nama Perusahaan</label>
+                        <label class="form-label label-required">Company Name</label>
                         <input type="text" class="form-control" id="corpName" placeholder="Masukkan Nama">
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label label-required">Alamat Perusahaan</label>
+                    <label class="form-label label-required">Company Address</label>
                     <textarea class="form-control" id="corpAddress" rows="2" placeholder="Alamat lengkap perusahaan"></textarea>
                 </div>
 
@@ -72,24 +72,40 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label label-required">No Telepon PIC</label>
+                        <label class="form-label label-required">Phone Number PIC</label>
                         <input type="tel" class="form-control" id="corpPhone" placeholder="08xxxxxxxxxx">
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label label-required">Email Perusahaan</label>
+                        <label class="form-label label-required">Company Email</label>
                         <input type="email" class="form-control" id="corpEmail" placeholder="email@company.com">
                     </div>
                 </div>
 
+                <!-- <div class="mb-3">
+                     <label class="form-label label-required">Select Type (Corpotation or Group)</label>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Corpotation
+                </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Group
+                </label>
+                </div>
+                </div> -->
+
                 <!-- FOOTER BUTTON -->
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <div class="note-required text-danger small">
-                        <i class="bi bi-asterisk"></i> Field bertanda * wajib diisi
+                        <i class="bi bi-asterisk"></i> Fields marked with * are required
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary me-2">Simpan (Preview)</button>
-                        <button type="button" class="btn btn-outline-secondary" id="resetCompany">Batal</button>
+                        <button type="submit" class="btn btn-primary me-2">Save (Preview)</button>
+                        <button type="button" class="btn btn-outline-secondary" id="resetCompany">Cancel</button>
                     </div>
                 </div>
 
