@@ -20,7 +20,7 @@
 <div class="container my-4" style="max-width: 900px;">
     <div class="card shadow-sm border-0">
         <div class="card-header bg-white d-flex justify-content-between align-items-center">
-            <strong class="text-primary">Pembelian Ticket Membership (LOKET)</strong>
+            <strong class="text-dark">Membership Ticket Purchase (Ticketing Counter)</strong>
             <div class="small text-muted">
                 <!-- <a href="#" class="text-decoration-none me-3"><i class="bi bi-list"></i> Data Member</a>
                 <a href="#" class="text-decoration-none"><i class="bi bi-person-plus"></i> Tambah Baru</a> -->
@@ -39,27 +39,27 @@
                 <!-- ID Type + NIK -->
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <label class="form-label label-required">Pilih ID Type</label>
+                        <label class="form-label label-required">Select ID Type</label>
                         <select class="form-select" id="idType_l">
-                            <option value="">-- Pilih ID Type --</option>
+                            <option value="">-- Select ID Type --</option>
                             <option>NIK</option>
                             <option>Passport</option>
-                            <option>ID Card Perusahaan</option>
+                            <option>Company ID Card</option>
                         </select>
                     </div>
 
                     <div class="col-md-8">
-                        <label class="form-label label-required">Masukkan NIK</label>
-                        <input type="text" class="form-control" id="nik_l" placeholder="Nomor Identitas Penumpang">
+                        <label class="form-label label-required">Enter your NIK</label>
+                        <input type="text" class="form-control" id="nik_l" placeholder="Please Input">
                     </div>
                 </div>
 
                 <!-- Jabatan + Nama -->
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <label class="form-label label-required">Masukkan Jabatan Penumpang</label>
+                        <label class="form-label label-required">Passenger Job Position</label>
                         <select class="form-select" id="position_l">
-                            <option value="">-- Pilih Jabatan --</option>
+                            <option value="">-- Select Job Position --</option>
                             <option>Staff</option>
                             <option>Supervisor</option>
                             <option>Manager</option>
@@ -69,44 +69,44 @@
                     </div>
 
                     <div class="col-md-8">
-                        <label class="form-label label-required">Masukkan Nama Penumpang</label>
-                        <input type="text" class="form-control" id="name_l" placeholder="Nama Lengkap">
+                        <label class="form-label label-required">Enter Passenger Name</label>
+                        <input type="text" class="form-control" id="name_l" placeholder="Please Input">
                     </div>
                 </div>
 
                 <!-- Reduksi B2B -->
                 <div class="mb-3">
                     <label class="form-label label-required">
-                        Pilih Reduksi Diskon B2B
-                        <span class="text-muted small">(Jika memakai tiket Membership)</span>
+                        Select Reduction
+                        <span class="text-muted small">(If using a Membership ticket)</span>
                     </label>
                     <select class="form-select" id="b2bType_l">
-                        <option value="">-- Pilih Reduksi B2B --</option>
-                        <option>Pegawai</option>
-                        <option>Pensiunan</option>
+                        <option value="">-- Select Reduction --</option>
+                        <option>-</option>
+                        <option>-</option>
                     </select>
                 </div>
 
                 <!-- Tanggal lahir + Gender + Negara -->
                 <div class="row mb-3">
                     <div class="col-md-4">
-                        <label class="form-label label-required">Masukkan Tanggal Lahir</label>
+                        <label class="form-label label-required">Enter Date of Birth</label>
                         <input type="date" class="form-control" id="birth_l">
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label label-required">Masukkan Jenis Kelamin</label>
+                        <label class="form-label label-required">Gender</label>
                         <select class="form-select" id="gender_l">
-                            <option value="">-- Pilih Gender --</option>
-                            <option>Laki-Laki</option>
-                            <option>Perempuan</option>
+                            <option value="">-- Select Gender --</option>
+                            <option>Male</option>
+                            <option>Female</option>
                         </select>
                     </div>
 
                     <div class="col-md-4">
-                        <label class="form-label label-required">Pilih Negara</label>
+                        <label class="form-label label-required">Select Country</label>
                         <select class="form-select" id="country_l">
-                            <option value="">-- Pilih Negara --</option>
+                            <option value="">-- Select Country --</option>
                             <option>Indonesia</option>
                             <option>Malaysia</option>
                             <option>Singapore</option>
@@ -118,18 +118,18 @@
 
                 <!-- Email -->
                 <div class="mb-3">
-                    <label class="form-label label-required">Masukkan Email Penumpang</label>
+                    <label class="form-label label-required">Enter Passenger Email</label>
                     <input type="email" class="form-control" id="email_l" placeholder="email@domain.com">
                 </div>
 
                 <!-- FOOTER BUTTON -->
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <div class="note-required text-danger small">
-                        <i class="bi bi-asterisk"></i> Field bertanda * wajib diisi
+                        <i class="bi bi-asterisk"></i> Fields marked with * are required
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary me-2">Simpan (Preview)</button>
-                        <button type="button" class="btn btn-outline-secondary" id="resetBtn3l">Batal</button>
+                        <button type="submit" class="btn btn-primary me-2">Save</button>
+                        <button type="button" class="btn btn-outline-secondary" id="resetBtn3l">Cancel</button>
                     </div>
                 </div>
 

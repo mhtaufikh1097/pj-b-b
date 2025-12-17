@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Membership B2B Registration (Web)</title>
+    <title>B2B Membership Registration (Web)</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,7 +24,7 @@
 <div class="container my-4" style="max-width: 1100px;">
     <div class="card shadow-sm">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <span class="fw-semibold">Pembelian Tiket Membership (Web)</span>
+            <span class="fw-semibold">Membership Ticket Purchase (Web)</span>
             <div class="small text-muted">
                 <!-- <a href="#" class="me-3 text-decoration-none"><i class="bi bi-table"></i> List Member</a>
                 <a href="#" class="text-decoration-none"><i class="bi bi-person-plus"></i> Registrasi Baru</a> -->
@@ -32,7 +32,7 @@
         </div>
 
         <div class="card-body">
-            <p class="section-title mb-2">Data Entry Membership B2B</p>
+            
 
             <!-- Alert Validasi -->
             <div id="alertBox3w" class="alert alert-danger d-none py-2 my-2 small"></div>
@@ -45,9 +45,9 @@
 
                         <!-- Negara -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Pilih Negara</label>
+                            <label class="form-label label-required">Select Country</label>
                             <select class="form-select" id="country_w">
-                                <option value="">-- Pilih Negara --</option>
+                                <option value="">-- Select Country --</option>
                                 <option>Indonesia</option>
                                 <option>Malaysia</option>
                                 <option>Singapore</option>
@@ -58,41 +58,38 @@
 
                         <!-- Kode Reduksi -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Pilih Kode Reduksi (Discount)</label>
+                            <label class="form-label label-required">Select Reduction Code</label>
                             <select class="form-select" id="discountCode_w">
-                                <option value="">-- Pilih Reduksi --</option>
-                                <option>Corporate</option>
-                                <option>B2B Discount</option>
-                                <option>Membership</option>
-                                <option>Pensiunan</option>
+                                <option value="">-- Select Reduction --</option>
+                                <option>BNI01</option>
+                                <option>BRI02</option>
+                                <option>NVDIA</option>
                             </select>
                             <div class="form-text small">
-                                Kode Perusahaan & NIK Penumpang mengikuti skema ini.
+                                Company Code & Passenger ID Number follow this scheme.
                             </div>
                         </div>
 
                         <!-- Nama -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Masukan Nama Lengkap</label>
-                            <input type="text" class="form-control" id="fullName_w" placeholder="Nama Lengkap Penumpang">
+                            <label class="form-label label-required">Enter your full name</label>
+                            <input type="text" class="form-control" id="fullName_w" placeholder="Please input">
                         </div>
 
                         <!-- Jabatan -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Masukan Jabatan Penumpang</label>
+                            <label class="form-label label-required">Select Position Job</label>
                             <select class="form-select" id="position3_w">
-                                <option value="">-- Pilih Jabatan --</option>
+                                <option value="">-- Select Position --</option>
                                 <option>Staff</option>
                                 <option>Supervisor</option>
                                 <option>Manager</option>
-                                <option>Direktur</option>
-                                <option>Pensiunan</option>
                             </select>
                         </div>
 
                         <!-- Email -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Masukan Email Perusahaan Penumpang</label>
+                            <label class="form-label label-required">Enter Passenger Company Email</label>
                             <input type="email" class="form-control" id="emailCorp_w" placeholder="email@perusahaan.com">
                         </div>
 
@@ -103,25 +100,25 @@
 
                         <!-- Tanggal lahir -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Masukan Tanggal Lahir</label>
+                            <label class="form-label label-required">Enter Date of Birth</label>
                             <input type="date" class="form-control" id="birthdate_w">
                         </div>
 
                         <!-- Gender -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Pilih Jenis Kelamin</label>
+                            <label class="form-label label-required">Select Gender</label>
                             <select class="form-select" id="gender_w">
-                                <option value="">-- Pilih Gender --</option>
-                                <option>Laki-Laki</option>
-                                <option>Perempuan</option>
+                                <option value="">-- Select Gender --</option>
+                                <option>Male</option>
+                                <option>Female</option>
                             </select>
                         </div>
 
                         <!-- Ticket Type -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Pilih Ticket Type</label>
+                            <label class="form-label label-required">Select Ticket Type</label>
                             <select class="form-select" id="ticketType3_w">
-                                <option value="">-- Pilih Ticket Type --</option>
+                                <option value="">-- Select Ticket Type --</option>
                                 <option selected>Membership</option>
                             </select>
                         </div>
@@ -129,21 +126,21 @@
                         <!-- Diskon B2B conditional -->
                         <div class="mb-3">
                             <label class="form-label label-required">
-                                Pilih Reduksi Discount B2B
+                                Select Reduction
                             </label>
                             <select class="form-select" id="b2bType_w">
-                                <option value="">-- Pilih Reduksi B2B --</option>
+                                <option value="">-- Select Reduction --</option>
                                 <option>Pegawai</option>
                                 <option>Pensiunan</option>
                             </select>
                             <div class="form-text small text-muted">
-                                Muncul jika promo membership digunakan.
+                                Appears if the membership promo is used.
                             </div>
                         </div>
 
                         <!-- WhatsApp -->
                         <div class="mb-3">
-                            <label class="form-label label-required">Masukan Nomor WhatsApp</label>
+                            <label class="form-label ">Enter WhatsApp Number</label>
                             <input type="tel" class="form-control" id="phoneWA_w"
                                    inputmode="tel"
                                    placeholder="08xxxxxxxxxx">
@@ -155,11 +152,11 @@
                 <!-- Footer Btn -->
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <div class="note-required text-danger small">
-                        <i class="bi bi-asterisk"></i> Field bertanda * wajib diisi
+                        <i class="bi bi-asterisk"></i> Fields marked * are required
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary me-2">Simpan (Preview)</button>
-                        <button type="button" class="btn btn-outline-secondary" id="resetBtn3_w">Batal</button>
+                        <button type="submit" class="btn btn-primary me-2">Save</button>
+                        <button type="button" class="btn btn-outline-secondary" id="resetBtn3_w">Cancel</button>
                     </div>
                 </div>
 
@@ -173,7 +170,7 @@
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Preview Membership B2B (Web)</h5>
+        <h5 class="modal-title">Preview B2B Membership (Web)</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
